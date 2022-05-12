@@ -16,7 +16,6 @@ class BottomSheetPage extends StatelessWidget {
             width: double.infinity,
             height: 45,
             alignment: Alignment.center,
-            color: Color(0xffe7f2f6),
             child: Text(
               "Ảnh đại diện",
               style: TextStyle(
