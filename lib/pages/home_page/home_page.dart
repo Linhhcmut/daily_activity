@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'dart:developer';
 import 'package:daily/contains/padding_contains.dart';
+import 'package:daily/pages/home_page/bottom_sheet.dart';
 import 'package:daily/stream/date_time_stream.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -23,7 +23,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     // DateTimeProvider getDateTime = Provider.of<DateTimeProvider>(context);
-    log("build outside");
     return Scaffold(
       body: Padding(
         padding: paddingWithScreen,
@@ -78,14 +77,11 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     child: GestureDetector(
-                      onTap: () => showModalBottomSheet(
+                      onTap: () => showModalBottomSheet<void>(
                         context: context,
-                        // shape: RoundedRectangleBorder(
-                        //   borderRadius: BorderRadius.vertical(
-                        //     top: Radius.circular(10),
-                        //   ),
-                        // ),
-                        builder: (context) => buildSheet(),
+                        builder: (context) {
+                          return BottomSheetPage();
+                        },
                       ),
                       child: ClipOval(
                         child: Image.asset(
@@ -100,90 +96,6 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget buildSheet() {
-    return Container(
-      width: double.infinity,
-      height: 230,
-      color: Colors.grey[200],
-      child: Column(
-        children: <Widget>[
-          Container(
-            width: double.infinity,
-            height: 45,
-            alignment: Alignment.center,
-            color: Color(0xffe7f2f6),
-            child: Text(
-              "Ảnh đại diện",
-              style: TextStyle(
-                color: Color(0xff12175E),
-                fontSize: 23,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-          Divider(
-            height: 1,
-            thickness: 2,
-          ),
-          Expanded(
-            child: Container(
-              width: double.infinity,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      SizedBox(width: 30),
-                      Image.asset("assets/images/image_gallery.png"),
-                      SizedBox(width: 20),
-                      Text(
-                        "Chọn ảnh từ thiết bị",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ],
-                  ),
-                  // SizedBox(height: 20),
-                  Row(
-                    children: <Widget>[
-                      SizedBox(width: 30),
-                      Image.asset("assets/images/camera.png"),
-                      SizedBox(width: 20),
-                      Text(
-                        "Chụp ảnh mới",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ],
-                  ),
-                  // SizedBox(height: 20),
-                  Row(
-                    children: <Widget>[
-                      SizedBox(width: 30),
-                      Image.asset("assets/images/user.png"),
-                      SizedBox(width: 20),
-                      Text(
-                        "Chọn ảnh đại diện có sẵn",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }
