@@ -1,6 +1,6 @@
 import 'package:daily/contains/padding_contains.dart';
+import 'package:daily/pages/bottom_navigator_page.dart/bottomNavigatorBar_page.dart';
 import 'package:daily/pages/forgotpass_page/forgotPass.dart';
-import 'package:daily/bottom_navigator_page.dart/bottomNavigatorBar_page.dart';
 import 'package:daily/pages/register_page/register_page.dart';
 import 'package:daily/pages/widget_base.dart/elevator_button_base.dart';
 import 'package:daily/pages/widget_base.dart/have_account_base.dart';

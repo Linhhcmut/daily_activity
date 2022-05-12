@@ -1,5 +1,5 @@
-import 'package:daily/bottom_navigator_page.dart/bottomNavigatorBar_page.dart';
 import 'package:flutter/material.dart';
+import 'pages/bottom_navigator_page.dart/bottomNavigatorBar_page.dart';
 import 'pages/splash_page/splash_page.dart';
 
 void main() {
