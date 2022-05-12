@@ -1,5 +1,5 @@
 import 'package:daily/contains/padding_contains.dart';
-import 'package:daily/pages/home_page/home_page.dart';
+import 'package:daily/bottom_navigator_page.dart/bottomNavigatorBar_page.dart';
 import 'package:daily/pages/login_page/login_page.dart';
 import 'package:daily/pages/widget_base.dart/elevator_button_base.dart';
 import 'package:daily/pages/widget_base.dart/have_account_base.dart';
@@ -47,7 +47,7 @@ class RegisterPage extends StatelessWidget {
                   textButton: "Đăng ký",
                   elevation: 1.0,
                   colorText: Colors.white,
-                  pageNavigator: HomePage(),
+                  pageNavigator: BottomNavigatorBarPage(),
                   primaryColor: 0xFF5B67CA,
                 ),
                 OrLoginWithBase(),

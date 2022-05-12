@@ -1,4 +1,4 @@
-import 'package:daily/pages/home_page/home_page.dart';
+import 'package:daily/bottom_navigator_page.dart/bottomNavigatorBar_page.dart';
 import 'package:flutter/material.dart';
 import 'pages/splash_page/splash_page.dart';
 
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: BottomNavigatorBarPage(),
     );
   }
 }

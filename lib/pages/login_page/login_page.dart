@@ -1,6 +1,6 @@
 import 'package:daily/contains/padding_contains.dart';
 import 'package:daily/pages/forgotpass_page/forgotPass.dart';
-import 'package:daily/pages/home_page/home_page.dart';
+import 'package:daily/bottom_navigator_page.dart/bottomNavigatorBar_page.dart';
 import 'package:daily/pages/register_page/register_page.dart';
 import 'package:daily/pages/widget_base.dart/elevator_button_base.dart';
 import 'package:daily/pages/widget_base.dart/have_account_base.dart';
@@ -53,7 +53,7 @@ class LoginPage extends StatelessWidget {
                   primaryColor: 0xFF5B67CA,
                   textButton: "Đăng nhập",
                   colorText: Colors.white,
-                  pageNavigator: HomePage(),
+                  pageNavigator: BottomNavigatorBarPage(),
                   elevation: 1.0,
                 ),
                 OrLoginWithBase(),
