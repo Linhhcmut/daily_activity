@@ -1,3 +1,4 @@
+import 'package:daily/pages/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 import 'pages/splash_page/splash_page.dart';
 
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashPage(),
+      home: HomePage(),
     );
   }
 }

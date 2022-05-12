@@ -67,11 +67,32 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   Spacer(),
-                  CircleAvatar(
-                    radius: 23,
-                    backgroundColor: Colors.transparent,
-                    child: Image.asset(
-                      "assets/images/avatar1.png",
+                  Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: Color(0xff12175E),
+                        width: 1.0,
+                      ),
+                    ),
+                    child: GestureDetector(
+                      onTap: () => showModalBottomSheet(
+                        context: context,
+                        // shape: RoundedRectangleBorder(
+                        //   borderRadius: BorderRadius.vertical(
+                        //     top: Radius.circular(10),
+                        //   ),
+                        // ),
+                        builder: (context) => buildSheet(),
+                      ),
+                      child: ClipOval(
+                        child: Image.asset(
+                          "assets/images/avatar1.png",
+                          fit: BoxFit.fill,
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -79,6 +100,90 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget buildSheet() {
+    return Container(
+      width: double.infinity,
+      height: 230,
+      color: Colors.grey[200],
+      child: Column(
+        children: <Widget>[
+          Container(
+            width: double.infinity,
+            height: 45,
+            alignment: Alignment.center,
+            color: Color(0xffe7f2f6),
+            child: Text(
+              "Ảnh đại diện",
+              style: TextStyle(
+                color: Color(0xff12175E),
+                fontSize: 23,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          Divider(
+            height: 1,
+            thickness: 2,
+          ),
+          Expanded(
+            child: Container(
+              width: double.infinity,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      SizedBox(width: 30),
+                      Image.asset("assets/images/image_gallery.png"),
+                      SizedBox(width: 20),
+                      Text(
+                        "Chọn ảnh từ thiết bị",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
+                  ),
+                  // SizedBox(height: 20),
+                  Row(
+                    children: <Widget>[
+                      SizedBox(width: 30),
+                      Image.asset("assets/images/camera.png"),
+                      SizedBox(width: 20),
+                      Text(
+                        "Chụp ảnh mới",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
+                  ),
+                  // SizedBox(height: 20),
+                  Row(
+                    children: <Widget>[
+                      SizedBox(width: 30),
+                      Image.asset("assets/images/user.png"),
+                      SizedBox(width: 20),
+                      Text(
+                        "Chọn ảnh đại diện có sẵn",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
