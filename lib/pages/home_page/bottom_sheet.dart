@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:daily/pages/home_page/alertDialog_page.dart';
 import 'package:daily/pages/home_page/row_bottom_sheet_base.dart';
 import 'package:flutter/material.dart';
 
@@ -51,7 +52,10 @@ class BottomSheetPage extends StatelessWidget {
                   ),
                   RowBottomSheetBase(
                     onPressed: () {
-                      log("3");
+                      return showDialog(
+                        context: context,
+                        builder: (context) => AlertDialogHomePage(),
+                      );
                     },
                     image: "assets/images/user.png",
                     text: "Chọn ảnh đại diện có sẵn",

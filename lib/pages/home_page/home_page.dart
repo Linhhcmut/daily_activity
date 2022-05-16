@@ -1,10 +1,14 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:daily/contains/padding_contains.dart';
+import 'package:daily/pages/home_page/avatar_page.dart';
 import 'package:daily/pages/home_page/bottom_sheet.dart';
+import 'package:daily/provider/change_avatar_provider.dart';
 import 'package:daily/stream/date_time_stream.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -23,6 +27,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    log("build home page");
     return Padding(
       padding: paddingWithScreen,
       child: Container(
@@ -83,9 +88,13 @@ class _HomePageState extends State<HomePage> {
                       },
                     ),
                     child: ClipOval(
-                      child: Image.asset(
-                        "assets/images/avatar1.png",
-                        fit: BoxFit.fill,
+                      child: Consumer<ChangeAvatarProvider>(
+                        builder: (context, imageUrl, child) {
+                          return Image.asset(
+                            imageUrl.urlAvatar,
+                            fit: BoxFit.fill,
+                          );
+                        },
                       ),
                     ),
                   ),
