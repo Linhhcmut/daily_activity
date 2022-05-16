@@ -14,24 +14,35 @@ class RowIconAvatarDialogPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     log("build row Icon Page");
-    ChangeAvatarProvider _changeAvatar = Provider.of<ChangeAvatarProvider>(context);
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        GestureDetector(
-          onTap: () => _changeAvatar.changeAvatar(image1, context),
-          child: Image.asset(image1),
+        Consumer<ChangeAvatarProvider>(
+          builder: (context, changeAvatar, child) {
+            return GestureDetector(
+              onTap: () => changeAvatar.changeAvatar(image1, context),
+              child: Image.asset(image1),
+            );
+          },
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: GestureDetector(
-            onTap: () => _changeAvatar.changeAvatar(image2, context),
-            child: Image.asset(image2),
+          child: Consumer<ChangeAvatarProvider>(
+            builder: (context, changeAvatar, child) {
+              return GestureDetector(
+                onTap: () => changeAvatar.changeAvatar(image2, context),
+                child: Image.asset(image2),
+              );
+            },
           ),
         ),
-        GestureDetector(
-          onTap: () => _changeAvatar.changeAvatar(image3, context),
-          child: Image.asset(image3),
+        Consumer<ChangeAvatarProvider>(
+          builder: (context, changeAvatar, child) {
+            return GestureDetector(
+              onTap: () => changeAvatar.changeAvatar(image3, context),
+              child: Image.asset(image3),
+            );
+          },
         ),
       ],
     );
