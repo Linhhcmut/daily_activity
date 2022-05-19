@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class TagWigetHomePage extends StatelessWidget {
+class TagWiget extends StatelessWidget {
   final String nameTag;
   final int colorName;
   final int colorBackground;
   final double widthTag;
 
-  TagWigetHomePage({this.colorBackground, this.colorName, this.nameTag, this.widthTag});
+  TagWiget({this.colorBackground, this.colorName, this.nameTag, this.widthTag});
 
 // blue
 // Color(0xffe4e7f9)

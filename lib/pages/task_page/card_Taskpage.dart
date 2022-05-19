@@ -1,17 +1,11 @@
 import 'package:daily/pages/widget_base.dart/tagWidget.dart';
 import 'package:flutter/material.dart';
 
-class CardTaskHomePage extends StatefulWidget {
-  @override
-  State<CardTaskHomePage> createState() => _CardTaskHomePageState();
-}
-
-class _CardTaskHomePageState extends State<CardTaskHomePage> {
-  String textShow;
+class CardTaskPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      width: 250,
       height: 130,
       child: Card(
         child: Padding(
@@ -37,23 +31,6 @@ class _CardTaskHomePageState extends State<CardTaskHomePage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  // Consumer<ChangeText>(
-                  //   builder: (context, text, child) {
-                  //     if (text.txtdefault.isEmpty) {
-                  //       textShow = "Nhiệm vụ mới";
-                  //     } else {
-                  //       textShow = text.txtdefault;
-                  //     }
-                  //     return Text(
-                  //       textShow,
-                  //       style: TextStyle(
-                  //         color: Color(0xff2C406E),
-                  //         fontSize: 16,
-                  //         fontWeight: FontWeight.bold,
-                  //       ),
-                  //     );
-                  //   },
-                  // ),
                   SizedBox(height: 9),
                   Text(
                     "7:00 - 7:15",

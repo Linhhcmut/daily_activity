@@ -27,7 +27,8 @@ class _BottomNavigatorBarPagePageState extends State<BottomNavigatorBarPage> {
         bucket: pucket,
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        backgroundColor: Color(0xff5B67CA),
+        child: Icon(Icons.add, color: Color(0xffffffff)),
         onPressed: () {
           log("add");
         },

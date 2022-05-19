@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.zero,
                 itemCount: 5,
                 itemBuilder: (context, index) {
-                  return CardTaskWidget();
+                  return CardTaskHomePage();
                 },
               ),
             ),
