@@ -13,7 +13,6 @@ class _TaskPageState extends State<TaskPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // resizeToAvoidBottomInset: false,
       appBar: AppBarTaskPage(),
       body: Padding(
         padding: paddingWithScreen,
