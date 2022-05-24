@@ -1,5 +1,5 @@
+import 'dart:developer';
 import 'package:daily/pages/graphic_page/colume_chart/bar_data_col_chart.dart';
-import 'package:daily/pages/graphic_page/colume_chart/icon_col_chart.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +23,7 @@ class _BarChartWidgetState extends State<BarChartWidget> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              "Thống kê 7 ngày",
+              "1 tuần",
               style: TextStyle(
                 fontSize: 24,
                 color: Color(0xff12175E),
@@ -70,7 +70,9 @@ class _BarChartWidgetState extends State<BarChartWidget> {
                           final index = value.toInt();
                           return Padding(
                             padding: const EdgeInsets.only(top: 8.0),
-                            child: index + 2 == 8 ? Text("CN") : Text("T" + (index + 2).toString()),
+                            child: index + 2 == 8
+                                ? Text("CN")
+                                : Text("T" + (index + 2).toString()),
                           );
                         },
                       ),
@@ -91,48 +93,6 @@ class _BarChartWidgetState extends State<BarChartWidget> {
                     return _barData.barGroupData(index: e.key);
                   }).toList(),
                   maxY: 20,
-                  barTouchData: BarTouchData(
-                    enabled: true,
-                    handleBuiltInTouches: false,
-                    touchTooltipData: BarTouchTooltipData(
-                        tooltipBgColor: Colors.transparent,
-                        tooltipMargin: 0,
-                        getTooltipItem: (
-                          BarChartGroupData group,
-                          int groupIndex,
-                          BarChartRodData rod,
-                          int rodIndex,
-                        ) {
-                          return BarTooltipItem(
-                            rod.toY.toString(),
-                            TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: rod.color,
-                              fontSize: 18,
-                              shadows: const [
-                                Shadow(
-                                  color: Colors.black26,
-                                  blurRadius: 12,
-                                )
-                              ],
-                            ),
-                          );
-                        }),
-                    touchCallback: (event, response) {
-                      if (event.isInterestedForInteractions &&
-                          response != null &&
-                          response.spot != null) {
-                        setState(() {
-                          touchedGroupIndex =
-                              response.spot.touchedBarGroupIndex;
-                        });
-                      } else {
-                        setState(() {
-                          touchedGroupIndex = -1;
-                        });
-                      }
-                    },
-                  ),
                 ),
               ),
             ),

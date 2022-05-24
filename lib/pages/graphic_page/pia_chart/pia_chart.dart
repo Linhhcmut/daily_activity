@@ -21,7 +21,7 @@ class PieChartPageState extends State {
         children: [
           SizedBox(height: 10),
           Text(
-            "Thống kê hôm nay",
+            "Hôm nay",
             style: TextStyle(
               fontSize: 24,
               color: Color(0xff12175E),
