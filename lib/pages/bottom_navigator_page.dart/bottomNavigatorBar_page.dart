@@ -1,6 +1,4 @@
 import 'dart:developer';
-
-import 'package:daily/pages/add_task_page/add_task_page.dart';
 import 'package:daily/pages/bottom_navigator_page.dart/materialButton_base.dart';
 import 'package:daily/pages/graphic_page/graphic_page.dart';
 import 'package:daily/pages/home_page/home_page.dart';
@@ -21,6 +19,7 @@ class _BottomNavigatorBarPagePageState extends State<BottomNavigatorBarPage> {
 
   @override
   Widget build(BuildContext context) {
+    bool showFab = MediaQuery.of(context).viewInsets.bottom != 0;
     return Scaffold(
       body: PageStorage(
         child: currentScreen,
