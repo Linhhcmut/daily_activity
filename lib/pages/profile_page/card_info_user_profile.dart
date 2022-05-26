@@ -1,5 +1,9 @@
+import 'dart:developer';
+
 import 'package:daily/pages/profile_page/title_tab_bar_profile.dart';
+import 'package:daily/provider/profile_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CardUserInfoProfile extends StatelessWidget {
   final double heightbackground;
@@ -8,9 +12,13 @@ class CardUserInfoProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color _color1;
+    Color _color2;
+    Color _color3;
     double widthContainer = 350;
+
     return Positioned(
-      top: heightbackground - 130,
+      top: heightbackground - 150,
       child: Container(
         width: widthScreen,
         height: 230,
@@ -28,7 +36,7 @@ class CardUserInfoProfile extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Container(
-                margin: EdgeInsets.only(top: heightbackground - 270),
+                margin: EdgeInsets.only(top: heightbackground - 250),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
@@ -53,29 +61,35 @@ class CardUserInfoProfile extends StatelessWidget {
                       height: 1,
                       thickness: 1,
                     ),
-                    Container(
-                      height: 50,
-                      width: 350,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          TitleTabBarProfile(
-                            title: "Thông tin",
-                            index: 0,
+                    Consumer<ProfileProvider>(
+                      builder: (context, color, child) {
+                        return Container(
+                          height: 50,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              TitleTabBarProfile(
+                                title: "Thông tin",
+                                index: 0,
+                                colorText: color.colorPage[0],
+                              ),
+                              VerticalDivider(width: 1, thickness: 1),
+                              TitleTabBarProfile(
+                                title: "Sự kiện",
+                                index: 1,
+                                colorText: color.colorPage[1],
+                              ),
+                              VerticalDivider(width: 1, thickness: 1),
+                              TitleTabBarProfile(
+                                title: "Riêng tư",
+                                index: 2,
+                                colorText: color.colorPage[2],
+                              ),
+                            ],
                           ),
-                          VerticalDivider(width: 1, thickness: 1),
-                          TitleTabBarProfile(
-                            title: "Sự kiện",
-                            index: 1,
-                          ),
-                          VerticalDivider(width: 1, thickness: 1),
-                          TitleTabBarProfile(
-                            title: "Riêng tư",
-                            index: 2,
-                          ),
-                        ],
-                      ),
-                    )
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),

@@ -21,16 +21,20 @@ class _BottomNavigatorBarPagePageState extends State<BottomNavigatorBarPage> {
   Widget build(BuildContext context) {
     bool showFab = MediaQuery.of(context).viewInsets.bottom != 0;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: PageStorage(
         child: currentScreen,
         bucket: pucket,
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xff5B67CA),
-        child: Icon(Icons.add, color: Color(0xffffffff)),
-        onPressed: () {
-          log("add");
-        },
+      floatingActionButton: Visibility(
+        visible: !showFab,
+        child: FloatingActionButton(
+          backgroundColor: Color(0xff5B67CA),
+          child: Icon(Icons.add, color: Color(0xffffffff)),
+          onPressed: () {
+            log("add");
+          },
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(

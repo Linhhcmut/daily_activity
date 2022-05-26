@@ -1,3 +1,4 @@
+import 'package:daily/pages/splash_page/splash_page.dart';
 import 'package:daily/provider/change_avatar_provider.dart';
 import 'package:daily/provider/profile_provider.dart';
 import 'package:flutter/material.dart';

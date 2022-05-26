@@ -5,7 +5,9 @@ import 'package:provider/provider.dart';
 class TitleTabBarProfile extends StatelessWidget {
   final String title;
   final int index;
-  TitleTabBarProfile({this.title, this.index});
+  final Color colorText;
+
+  TitleTabBarProfile({this.title, this.index, this.colorText});
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -21,9 +23,9 @@ class TitleTabBarProfile extends StatelessWidget {
               child: Text(
                 title,
                 style: TextStyle(
-                  color: Color(0xff12175E),
+                  color: colorText,
                   fontSize: 15,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ),

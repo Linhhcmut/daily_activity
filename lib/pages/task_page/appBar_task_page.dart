@@ -38,7 +38,7 @@ class AppBarTaskPage extends StatelessWidget implements PreferredSizeWidget {
               ),
             ),
           ),
-          style: TextStyle(color: Colors.grey, fontSize: 16),
+          style: TextStyle(color: Color(0xff12175E), fontSize: 16),
         ),
       ),
     );

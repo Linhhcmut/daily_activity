@@ -9,7 +9,7 @@ class AvatarProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: heightbackground - 160,
+      top: heightbackground - 180,
       child: Consumer<ChangeAvatarProvider>(
         builder: (context, imageUrl, child) {
           return Container(
