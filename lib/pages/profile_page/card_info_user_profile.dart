@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:daily/pages/profile_page/title_tab_bar_profile.dart';
 import 'package:daily/provider/profile_provider.dart';
 import 'package:flutter/material.dart';
@@ -12,11 +10,7 @@ class CardUserInfoProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color _color1;
-    Color _color2;
-    Color _color3;
     double widthContainer = 350;
-
     return Positioned(
       top: heightbackground - 150,
       child: Container(

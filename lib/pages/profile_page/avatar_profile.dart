@@ -1,19 +1,27 @@
-import 'package:daily/provider/change_avatar_provider.dart';
+import 'package:daily/provider/profile_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class AvatarProfile extends StatelessWidget {
+class AvatarProfile extends StatefulWidget {
   final double heightbackground;
   final double widthScreen;
   AvatarProfile({this.heightbackground, this.widthScreen});
+
+  @override
+  State<AvatarProfile> createState() => _AvatarProfileState();
+}
+
+class _AvatarProfileState extends State<AvatarProfile> {
+  String newPathImage;
+
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: heightbackground - 180,
-      child: Consumer<ChangeAvatarProvider>(
+      top: widget.heightbackground - 180,
+      child: Consumer<ProfileProvider>(
         builder: (context, imageUrl, child) {
           return Container(
-            width: widthScreen,
+            width: widget.widthScreen,
             child: Center(
               child: Container(
                 width: 100,
@@ -25,8 +33,10 @@ class AvatarProfile extends StatelessWidget {
                     width: 1.0,
                   ),
                   image: DecorationImage(
-                    image: AssetImage("${imageUrl.urlAvatar}"),
-                    fit: BoxFit.contain,
+                    image: imageUrl.image == null
+                        ? AssetImage("assets/images/avatar1.png")
+                        : FileImage(imageUrl.image),
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),

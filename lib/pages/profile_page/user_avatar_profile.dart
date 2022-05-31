@@ -1,4 +1,4 @@
-import 'package:daily/provider/change_avatar_provider.dart';
+import 'package:daily/provider/profile_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -22,23 +22,24 @@ class UserAvatarProfile extends StatelessWidget {
             ),
           ),
           Positioned(
-              top: coverHeight - heightAvatar / 2,
-              child: Consumer<ChangeAvatarProvider>(
-                builder: (context, imageUrl, child) {
-                  return Container(
-                    width: heightAvatar,
-                    height: heightAvatar,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Color(0xff12175E), width: 1.0),
-                      image: DecorationImage(
-                        image: AssetImage("${imageUrl.urlAvatar}"),
-                        fit: BoxFit.contain,
-                      ),
+            top: coverHeight - heightAvatar / 2,
+            child: Consumer<ProfileProvider>(
+              builder: (context, imageUrl, child) {
+                return Container(
+                  width: heightAvatar,
+                  height: heightAvatar,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Color(0xff12175E), width: 1.0),
+                    image: DecorationImage(
+                      image: AssetImage("${imageUrl.image.path}"),
+                      fit: BoxFit.contain,
                     ),
-                  );
-                },
-              )),
+                  ),
+                );
+              },
+            ),
+          ),
         ],
       ),
     );

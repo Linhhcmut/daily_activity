@@ -1,5 +1,4 @@
 import 'package:daily/pages/splash_page/splash_page.dart';
-import 'package:daily/provider/change_avatar_provider.dart';
 import 'package:daily/provider/profile_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,9 +14,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (_) => ChangeAvatarProvider(),
-        ),
         ChangeNotifierProvider(
           create: (_) => ProfileProvider(),
         )

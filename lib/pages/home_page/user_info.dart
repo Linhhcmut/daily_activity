@@ -1,7 +1,5 @@
 import 'dart:async';
-
-import 'package:daily/pages/home_page/bottom_sheet.dart';
-import 'package:daily/provider/change_avatar_provider.dart';
+import 'package:daily/provider/profile_provider.dart';
 import 'package:daily/stream/date_time_stream.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -70,22 +68,20 @@ class _UserInfoWidgetState extends State<UserInfoWidget> {
               width: 1.0,
             ),
           ),
-          child: GestureDetector(
-            onTap: () => showModalBottomSheet<void>(
-              context: context,
-              builder: (context) {
-                return BottomSheetPage();
-              },
-            ),
-            child: ClipOval(
-              child: Consumer<ChangeAvatarProvider>(
-                builder: (context, imageUrl, child) {
+          child: ClipOval(
+            child: Consumer<ProfileProvider>(
+              builder: (context, imageUrl, child) {
+                if (imageUrl.image == null) {
                   return Image.asset(
-                    imageUrl.urlAvatar,
-                    fit: BoxFit.fill,
+                    "assets/images/avatar1.png",
+                    fit: BoxFit.cover,
                   );
-                },
-              ),
+                }
+                return Image.file(
+                  imageUrl.image,
+                  fit: BoxFit.cover,
+                );
+              },
             ),
           ),
         ),
