@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:daily/pages/profile_page/appbar_profile.dart';
 import 'package:daily/pages/profile_page/avatar_profile.dart';
 import 'package:daily/pages/profile_page/body_profile/body_profile.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    log("build profile page");
     final double heightbackground = 300;
     final double widthScreen = MediaQuery.of(context).size.width;
     final double heightScreen = MediaQuery.of(context).size.height;

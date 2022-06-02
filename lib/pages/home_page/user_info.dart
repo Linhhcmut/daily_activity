@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'package:daily/provider/profile_provider.dart';
 import 'package:daily/stream/date_time_stream.dart';
 import 'package:flutter/material.dart';
@@ -27,13 +28,17 @@ class _UserInfoWidgetState extends State<UserInfoWidget> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(
-              "Hi, Steven",
-              style: TextStyle(
-                color: Color(0xff12175E),
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-              ),
+            Consumer<ProfileProvider>(
+              builder: (context, name, child) {
+                return Text(
+                  "Hi, ${name.infoUser.name}",
+                  style: TextStyle(
+                    color: Color(0xff12175E),
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                  ),
+                );
+              },
             ),
             SizedBox(height: 10),
             StreamBuilder(
@@ -71,14 +76,15 @@ class _UserInfoWidgetState extends State<UserInfoWidget> {
           child: ClipOval(
             child: Consumer<ProfileProvider>(
               builder: (context, imageUrl, child) {
-                if (imageUrl.image == null) {
+                log("user info");
+                if (imageUrl.imageSave == null) {
                   return Image.asset(
                     "assets/images/avatar1.png",
                     fit: BoxFit.cover,
                   );
                 }
                 return Image.file(
-                  imageUrl.image,
+                  imageUrl.imageSave,
                   fit: BoxFit.cover,
                 );
               },

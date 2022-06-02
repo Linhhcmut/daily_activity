@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:daily/pages/profile_page/body_profile/body_page1_profile.dart';
 import 'package:daily/pages/profile_page/body_profile/body_page2_profile.dart';
 import 'package:daily/pages/profile_page/body_profile/body_page3_profile.dart';
@@ -12,6 +14,7 @@ class BodyProfile extends StatelessWidget {
   BodyProfile({this.heightScreen, this.widthScreen});
   @override
   Widget build(BuildContext context) {
+    log("body page");
     return Align(
       alignment: FractionalOffset.bottomCenter,
       child: Container(

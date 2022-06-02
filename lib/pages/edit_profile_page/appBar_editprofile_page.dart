@@ -10,7 +10,7 @@ class AppBarEditProfilePage extends StatelessWidget
       elevation: 0.0,
       centerTitle: true,
       title: Text(
-        "Sửa thông tin",
+        "Thông tin",
         style: TextStyle(
           color: Color(0xff858FE9),
           fontSize: 20,
@@ -18,27 +18,16 @@ class AppBarEditProfilePage extends StatelessWidget
       ),
       leading: Container(
         alignment: Alignment.center,
-        child: Text(
-          "Hủy",
-          style: TextStyle(
+        child: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
             color: Color(0xff858FE9),
-            fontSize: 14,
           ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
-      actions: <Widget>[
-        Container(
-          alignment: Alignment.center,
-          child: Text(
-            "Lưu",
-            style: TextStyle(
-              color: Color(0xff858FE9),
-              fontSize: 14,
-            ),
-          ),
-        ),
-        SizedBox(width: 10),
-      ],
     );
   }
 }

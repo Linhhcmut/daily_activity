@@ -34,21 +34,29 @@ class CardUserInfoProfile extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-                    Text(
-                      "Steve Job",
-                      style: TextStyle(
-                        color: Color(0xff12175E),
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      ),
+                    Consumer<ProfileProvider>(
+                      builder: (context, name, child) {
+                        return Text(
+                          "${name.infoUser.name}",
+                          style: TextStyle(
+                            color: Color(0xff12175E),
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        );
+                      },
                     ),
                     SizedBox(height: 4),
-                    Text(
-                      "stevejob@gmail.com",
-                      style: TextStyle(
-                        color: Color(0xff12175E),
-                        fontSize: 14,
-                      ),
+                    Consumer<ProfileProvider>(
+                      builder: (context, email, child) {
+                        return Text(
+                          email.infoUser.email,
+                          style: TextStyle(
+                            color: Color(0xff12175E),
+                            fontSize: 14,
+                          ),
+                        );
+                      },
                     ),
                     SizedBox(height: 25),
                     Divider(

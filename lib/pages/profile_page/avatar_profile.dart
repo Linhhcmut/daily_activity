@@ -13,7 +13,6 @@ class AvatarProfile extends StatefulWidget {
 
 class _AvatarProfileState extends State<AvatarProfile> {
   String newPathImage;
-
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -33,9 +32,9 @@ class _AvatarProfileState extends State<AvatarProfile> {
                     width: 1.0,
                   ),
                   image: DecorationImage(
-                    image: imageUrl.image == null
+                    image: imageUrl.imageSave == null
                         ? AssetImage("assets/images/avatar1.png")
-                        : FileImage(imageUrl.image),
+                        : FileImage(imageUrl.imageSave),
                     fit: BoxFit.cover,
                   ),
                 ),

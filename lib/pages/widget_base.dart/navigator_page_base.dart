@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class NavigationAnimationPage {
-  void navigatorPage(BuildContext context, Widget pageNavigator) {
+  void navigatorPage(
+      BuildContext context, Widget pageNavigator) {
     Navigator.push(
       context,
       PageRouteBuilder(

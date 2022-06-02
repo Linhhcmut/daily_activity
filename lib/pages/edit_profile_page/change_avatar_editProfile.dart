@@ -1,7 +1,5 @@
 import 'package:daily/pages/edit_profile_page/dialog_profile_page.dart';
-import 'package:daily/provider/profile_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class ChangeAvatarEditProfilePage extends StatelessWidget {
   @override
@@ -9,44 +7,40 @@ class ChangeAvatarEditProfilePage extends StatelessWidget {
     return Positioned(
       right: 0,
       bottom: 0,
-      child: Consumer<ProfileProvider>(
-        builder: (context, changeImage, child) {
-          return GestureDetector(
-            onTap: () {
-              showGeneralDialog(
-                barrierColor: Colors.black.withOpacity(0.5),
-                transitionBuilder: (context, a1, a2, widget) {
-                  return Transform.scale(
-                    scale: a1.value,
-                    child: Opacity(
-                      opacity: a1.value,
-                      child: DialogEditProfilePage(),
-                    ),
-                  );
-                },
-                transitionDuration: Duration(milliseconds: 200),
-                barrierDismissible: true,
-                barrierLabel: "",
-                context: context,
-                pageBuilder: (context, animation1, animation2) {
-                  return;
-                },
+      child: GestureDetector(
+        onTap: () {
+          showGeneralDialog(
+            barrierColor: Colors.black.withOpacity(0.5),
+            transitionBuilder: (context, a1, a2, widget) {
+              return Transform.scale(
+                scale: a1.value,
+                child: Opacity(
+                  opacity: a1.value,
+                  child: DialogEditProfilePage(),
+                ),
               );
             },
-            child: Container(
-              width: 25,
-              height: 25,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: Colors.white, width: 1.5),
-                color: Color(0xff858FE9),
-                image: DecorationImage(
-                  image: AssetImage("assets/icons/add_photo.png"),
-                ),
-              ),
-            ),
+            transitionDuration: Duration(milliseconds: 200),
+            barrierDismissible: true,
+            barrierLabel: "",
+            context: context,
+            pageBuilder: (context, animation1, animation2) {
+              return;
+            },
           );
         },
+        child: Container(
+          width: 25,
+          height: 25,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(color: Colors.white, width: 1.5),
+            color: Color(0xff858FE9),
+            image: DecorationImage(
+              image: AssetImage("assets/icons/add_photo.png"),
+            ),
+          ),
+        ),
       ),
     );
   }
