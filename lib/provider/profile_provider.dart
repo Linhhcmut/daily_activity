@@ -19,11 +19,12 @@ class ProfileProvider extends ChangeNotifier {
     address: "261/15/17/21 Đình Phong Phú, Tăng Nhơn Phú A, Quận 9, TpHCM",
   );
   List<CardProfileModel> _listCard = [];
-  int lengthList;
+  String _firstName;
 
   int get indexPage => _indexPage;
   List<Color> get colorPage => _colorPage;
   InfoUser get infoUser => _infoUser;
+  String get firstname => _firstName;
 
   void changeData(int index) {
     _indexPage = index;
@@ -59,13 +60,6 @@ class ProfileProvider extends ChangeNotifier {
 
   File _imageSave;
   File get imageSave => _imageSave;
-  bool _boolsave;
-  bool get boolsave => _boolsave;
-
-  void editButton() {
-    _boolsave = false;
-    notifyListeners();
-  }
 
   void saveProfileData({
     String name,
@@ -77,12 +71,13 @@ class ProfileProvider extends ChangeNotifier {
   }) {
     _imageSave = _image;
     _infoUser.name = name;
+    var listname = name.split(" ");
+    _firstName = listname[0];
     _infoUser.email = email;
     _infoUser.phonenumber = phone;
     _infoUser.country = country;
     _infoUser.province = province;
     _infoUser.address = address;
-    _boolsave = true;
     notifyListeners();
   }
 
@@ -104,6 +99,12 @@ class ProfileProvider extends ChangeNotifier {
         contentCard: "",
       ),
     ];
+    notifyListeners();
+  }
+
+  void getFirstName() {
+    var listname = _infoUser.name.split(" ");
+    _firstName = listname[0];
     notifyListeners();
   }
 }

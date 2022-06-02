@@ -43,7 +43,6 @@ class _Body1ProfileState extends State<Body1Profile> {
               builder: (context, editpage, child) {
                 return GestureDetector(
                   onTap: () async {
-                    await editpage.editButton();
                     NavigationAnimationPage().navigatorPage(
                       context,
                       EditProfilePage(),

@@ -16,6 +16,9 @@ class _UserInfoWidgetState extends State<UserInfoWidget> {
 
   @override
   void initState() {
+    Future.delayed(Duration.zero, () async {
+      Provider.of<ProfileProvider>(context, listen: false).getFirstName();
+    });
     Timer.periodic(
         Duration(seconds: 1), (Timer t) => _dateTimeStream.editTime());
     super.initState();
@@ -31,7 +34,7 @@ class _UserInfoWidgetState extends State<UserInfoWidget> {
             Consumer<ProfileProvider>(
               builder: (context, name, child) {
                 return Text(
-                  "Hi, ${name.infoUser.name}",
+                  "Hi, ${name.firstname}",
                   style: TextStyle(
                     color: Color(0xff12175E),
                     fontSize: 28,

@@ -184,16 +184,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           ),
                         ),
                         onPressed: () async {
-                          await save.boolsave == false
-                              ? save.saveProfileData(
-                                  name: _nameController.text,
-                                  email: _emailController.text,
-                                  phone: _phoneController.text,
-                                  country: _countryController.text,
-                                  province: _provinceController.text,
-                                  address: _addressController.text,
-                                )
-                              : save.editButton();
+                          await save.saveProfileData(
+                            name: _nameController.text,
+                            email: _emailController.text,
+                            phone: _phoneController.text,
+                            country: _countryController.text,
+                            province: _provinceController.text,
+                            address: _addressController.text,
+                          );
                           await save.getDataCard();
                           Navigator.pop(context);
                         },
