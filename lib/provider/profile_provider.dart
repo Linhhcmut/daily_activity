@@ -104,4 +104,12 @@ class ProfileProvider extends ChangeNotifier {
     _firstName = listname[0];
     notifyListeners();
   }
+
+  bool _vietnam = true;
+  bool get vietname => _vietnam;
+
+  void changeLanguage(bool vietnam) {
+    _vietnam = vietnam;
+    notifyListeners();
+  }
 }

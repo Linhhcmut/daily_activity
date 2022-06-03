@@ -1,6 +1,9 @@
 import 'dart:developer';
 
+import 'package:daily/pages/profile_page/body_profile/change_laguage.dart';
+import 'package:daily/provider/profile_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Body3Profile extends StatefulWidget {
   @override
@@ -27,10 +30,45 @@ class _Body3ProfileState extends State<Body3Profile> {
                 children: <Widget>[
                   textBase(text: "Ngôn ngữ"),
                   Spacer(),
-                  textBase(text: "English"),
-                  Icon(
-                    Icons.arrow_right,
-                    color: Color(0xff12175E),
+                  GestureDetector(
+                    onTap: () {
+                      showGeneralDialog(
+                        barrierColor: Colors.black.withOpacity(0.5),
+                        transitionBuilder: (context, a1, a2, widget) {
+                          return Transform.scale(
+                            scale: a1.value,
+                            child: Opacity(
+                              opacity: a1.value,
+                              child: ChangeLanguagePage(),
+                            ),
+                          );
+                        },
+                        transitionDuration: Duration(milliseconds: 200),
+                        barrierDismissible: true,
+                        barrierLabel: "",
+                        context: context,
+                        pageBuilder: (context, animation1, animation2) {
+                          return;
+                        },
+                      );
+                    },
+                    child: Container(
+                      child: Row(
+                        children: <Widget>[
+                          Consumer<ProfileProvider>(
+                            builder: (context, language, child) {
+                              return textBase(
+                                text: language.vietname ? "Tiếng Việt" : "English",
+                              );
+                            },
+                          ),
+                          Icon(
+                            Icons.arrow_right,
+                            color: Color(0xff12175E),
+                          )
+                        ],
+                      ),
+                    ),
                   )
                 ],
               ),
@@ -39,7 +77,7 @@ class _Body3ProfileState extends State<Body3Profile> {
             SizedBox(height: 30),
             textBase(text: "Thông báo", fontWeight: FontWeight.bold),
             Divider(thickness: 1),
-            SizedBox(height: 15),
+            SizedBox(height: 6),
             Row(
               children: <Widget>[
                 textBase(text: "Bật thông báo"),
@@ -49,7 +87,6 @@ class _Body3ProfileState extends State<Body3Profile> {
                   onChanged: (value) {
                     setState(() {
                       notiication_sw = value;
-                      log(value.toString());
                     });
                   },
                 )
