@@ -1,3 +1,10 @@
+import 'dart:developer';
+
+import 'package:daily/pages/complete_page/complete_page.dart';
+import 'package:daily/pages/onGoing_page/onGoing_page.dart';
+import 'package:daily/pages/pending_page/pending_page.dart';
+import 'package:daily/pages/recycleBin_page/recycleBin_page.dart';
+import 'package:daily/pages/widget_base.dart/navigator_page_base.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -44,34 +51,54 @@ class _MyTaskBoxWidgetState extends State<MyTaskBoxWidget> {
       mainAxisSpacing: 4,
       crossAxisSpacing: 4,
       itemBuilder: (context, index) {
-        return Stack(
-          children: <Widget>[
-            Image.asset("${imageList[index]}"),
-            Positioned(
-              bottom: 60,
-              left: 20,
-              child: Text(
-                "${textList[index]}",
-                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w700,
-                  color: colorTextList[index],
+        return GestureDetector(
+          onTap: () {
+            switch (index) {
+              case 0:
+                NavigationAnimationPage()
+                    .navigatorPage(context, CompletePage());
+                break;
+              case 1:
+                NavigationAnimationPage().navigatorPage(context, PendingPage());
+                break;
+              case 2:
+                NavigationAnimationPage()
+                    .navigatorPage(context, RecycleBinPage());
+                break;
+              case 3:
+                NavigationAnimationPage().navigatorPage(context, OnGoingPage());
+                break;
+            }
+          },
+          child: Stack(
+            children: <Widget>[
+              Image.asset("${imageList[index]}"),
+              Positioned(
+                bottom: 60,
+                left: 20,
+                child: Text(
+                  "${textList[index]}",
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
+                    color: colorTextList[index],
+                  ),
                 ),
               ),
-            ),
-            Positioned(
-              bottom: 25,
-              left: 20,
-              child: Text(
-                "${textnumberList[index]}",
-                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w700,
-                  color: colorTextList[index],
+              Positioned(
+                bottom: 25,
+                left: 20,
+                child: Text(
+                  "${textnumberList[index]}",
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
+                    color: colorTextList[index],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         );
       },
       staggeredTileBuilder: (int index) =>
