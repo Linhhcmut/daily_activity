@@ -1,12 +1,12 @@
 import 'package:daily/pages/widget_base.dart/tagWidget.dart';
 import 'package:flutter/material.dart';
 
-class CardTaskHomePage extends StatefulWidget {
+class CardTaskBase extends StatefulWidget {
   @override
-  State<CardTaskHomePage> createState() => _CardTaskHomePageState();
+  State<CardTaskBase> createState() => _CardTaskBaseState();
 }
 
-class _CardTaskHomePageState extends State<CardTaskHomePage> {
+class _CardTaskBaseState extends State<CardTaskBase> {
   String textShow;
   @override
   Widget build(BuildContext context) {

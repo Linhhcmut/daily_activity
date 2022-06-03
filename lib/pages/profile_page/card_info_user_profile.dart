@@ -83,7 +83,7 @@ class CardUserInfoProfile extends StatelessWidget {
                               ),
                               VerticalDivider(width: 1, thickness: 1),
                               TitleTabBarProfile(
-                                title: "Riêng tư",
+                                title: "Cài đặt",
                                 index: 2,
                                 colorText: color.colorPage[2],
                               ),
