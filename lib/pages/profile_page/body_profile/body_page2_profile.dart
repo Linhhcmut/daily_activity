@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:daily/pages/widget_base.dart/card_task_base.dart';
+import 'package:daily/pages/widget_base/card_base.dart';
 import 'package:flutter/material.dart';
 
 class Body2Profile extends StatelessWidget {
@@ -43,7 +43,7 @@ class Body2Profile extends StatelessWidget {
                 shrinkWrap: true,
                 itemCount: 15,
                 itemBuilder: (context, index) {
-                  return CardTaskBase();
+                  return CardWidgetBase();
                 },
               ),
             ),

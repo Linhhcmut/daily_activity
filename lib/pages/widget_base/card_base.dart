@@ -1,13 +1,22 @@
-import 'package:daily/pages/widget_base.dart/tagWidget.dart';
+import 'package:daily/pages/widget_base/tagWidget.dart';
 import 'package:flutter/material.dart';
 
-class CardTaskPage extends StatelessWidget {
+class CardWidgetBase extends StatefulWidget {
+  final Color color;
+  CardWidgetBase({this.color});
+  @override
+  State<CardWidgetBase> createState() => _CardWidgetBaseState();
+}
+
+class _CardWidgetBaseState extends State<CardWidgetBase> {
+  String textShow;
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 250,
       height: 130,
       child: Card(
+        color: widget.color,
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 10),
           child: Row(
@@ -31,6 +40,23 @@ class CardTaskPage extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  // Consumer<ChangeText>(
+                  //   builder: (context, text, child) {
+                  //     if (text.txtdefault.isEmpty) {
+                  //       textShow = "Nhiệm vụ mới";
+                  //     } else {
+                  //       textShow = text.txtdefault;
+                  //     }
+                  //     return Text(
+                  //       textShow,
+                  //       style: TextStyle(
+                  //         color: Color(0xff2C406E),
+                  //         fontSize: 16,
+                  //         fontWeight: FontWeight.bold,
+                  //       ),
+                  //     );
+                  //   },
+                  // ),
                   SizedBox(height: 9),
                   Text(
                     "7:00 - 7:15",

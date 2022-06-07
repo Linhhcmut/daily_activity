@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'package:daily/contains/padding_contains.dart';
-import 'package:daily/pages/widget_base.dart/card_task_base.dart';
+import 'package:daily/pages/widget_base/card_base.dart';
 import 'package:daily/pages/home_page/my_tast.dart';
 import 'package:daily/pages/home_page/user_info.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.zero,
                 itemCount: 5,
                 itemBuilder: (context, index) {
-                  return CardTaskBase();
+                  return CardWidgetBase();
                 },
               ),
             ),

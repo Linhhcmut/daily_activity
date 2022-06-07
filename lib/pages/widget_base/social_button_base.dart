@@ -1,4 +1,4 @@
-import 'package:daily/pages/widget_base.dart/press_icon_base.dart';
+import 'package:daily/pages/widget_base/press_icon_base.dart';
 import 'package:flutter/material.dart';
 
 class SocialLoginButtonBase extends StatelessWidget {

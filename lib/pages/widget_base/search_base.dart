@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppBarTaskPage extends StatelessWidget implements PreferredSizeWidget {
+class SearchWidgetBase extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(100);
 
@@ -10,6 +10,7 @@ class AppBarTaskPage extends StatelessWidget implements PreferredSizeWidget {
       toolbarHeight: 100,
       backgroundColor: Colors.transparent,
       elevation: 0.0,
+      automaticallyImplyLeading: false,
       title: Container(
         decoration: BoxDecoration(
           color: Color(0xffF6F6F6),

@@ -1,10 +1,8 @@
-import 'dart:developer';
-
 import 'package:daily/pages/complete_page/complete_page.dart';
 import 'package:daily/pages/onGoing_page/onGoing_page.dart';
 import 'package:daily/pages/pending_page/pending_page.dart';
 import 'package:daily/pages/recycleBin_page/recycleBin_page.dart';
-import 'package:daily/pages/widget_base.dart/navigator_page_base.dart';
+import 'package:daily/pages/widget_base/navigator_page_base.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -62,11 +60,11 @@ class _MyTaskBoxWidgetState extends State<MyTaskBoxWidget> {
                 NavigationAnimationPage().navigatorPage(context, PendingPage());
                 break;
               case 2:
-                NavigationAnimationPage()
-                    .navigatorPage(context, RecycleBinPage());
+                NavigationAnimationPage().navigatorPage(context, OnGoingPage());
                 break;
               case 3:
-                NavigationAnimationPage().navigatorPage(context, OnGoingPage());
+                NavigationAnimationPage()
+                    .navigatorPage(context, RecycleBinPage());
                 break;
             }
           },

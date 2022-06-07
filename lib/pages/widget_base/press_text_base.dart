@@ -1,4 +1,4 @@
-import 'package:daily/pages/widget_base.dart/navigator_page_base.dart';
+import 'package:daily/pages/widget_base/navigator_page_base.dart';
 import 'package:flutter/material.dart';
 
 class PressTextBase extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:daily/pages/login_page/login_page.dart';
 import 'package:daily/pages/register_page/register_page.dart';
-import 'package:daily/pages/widget_base.dart/elevator_button_base.dart';
+import 'package:daily/pages/widget_base/elevator_button_base.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatelessWidget {

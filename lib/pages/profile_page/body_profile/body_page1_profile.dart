@@ -1,9 +1,8 @@
 import 'dart:async';
 import 'dart:developer';
-
 import 'package:daily/pages/profile_page/body_profile/card_body_profile.dart';
 import 'package:daily/pages/edit_profile_page/edit_profile_page.dart';
-import 'package:daily/pages/widget_base.dart/navigator_page_base.dart';
+import 'package:daily/pages/widget_base/navigator_page_base.dart';
 import 'package:daily/provider/profile_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';

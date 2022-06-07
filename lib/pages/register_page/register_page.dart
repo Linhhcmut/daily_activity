@@ -1,12 +1,12 @@
 import 'package:daily/contains/padding_contains.dart';
 import 'package:daily/pages/bottom_navigator_page.dart/bottomNavigatorBar_page.dart';
 import 'package:daily/pages/login_page/login_page.dart';
-import 'package:daily/pages/widget_base.dart/elevator_button_base.dart';
-import 'package:daily/pages/widget_base.dart/have_account_base.dart';
-import 'package:daily/pages/widget_base.dart/or_login_with_base.dart';
-import 'package:daily/pages/widget_base.dart/social_button_base.dart';
-import 'package:daily/pages/widget_base.dart/textformfield_base.dart';
-import 'package:daily/pages/widget_base.dart/title_accountPage_base.dart';
+import 'package:daily/pages/widget_base/elevator_button_base.dart';
+import 'package:daily/pages/widget_base/have_account_base.dart';
+import 'package:daily/pages/widget_base/or_login_with_base.dart';
+import 'package:daily/pages/widget_base/social_button_base.dart';
+import 'package:daily/pages/widget_base/textformfield_base.dart';
+import 'package:daily/pages/widget_base/title_accountPage_base.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatelessWidget {
