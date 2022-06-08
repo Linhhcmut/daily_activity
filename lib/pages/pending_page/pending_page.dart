@@ -5,6 +5,7 @@ class PendingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageTaskBoxBase(
+      titleappBar: "Chưa thực hiện",
       color: Color(0xffeef0ff),
     );
   }

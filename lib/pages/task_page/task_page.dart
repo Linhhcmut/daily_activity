@@ -1,5 +1,5 @@
 import 'package:daily/contains/padding_contains.dart';
-import 'package:daily/pages/widget_base/search_base.dart';
+import 'package:daily/pages/widget_base/searchAppBar_base.dart';
 import 'package:daily/pages/task_page/item_today_taskpage.dart';
 import 'package:daily/pages/task_page/time_table_taskPage.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ class _TaskPageState extends State<TaskPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: SearchWidgetBase(),
+      appBar: SearchAppBarBase(),
       body: Padding(
         padding: paddingWithScreen,
         child: Container(

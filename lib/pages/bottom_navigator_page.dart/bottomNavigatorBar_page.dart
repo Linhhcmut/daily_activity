@@ -1,9 +1,11 @@
 import 'dart:developer';
+import 'package:daily/pages/add_task_page/add_task_page.dart';
 import 'package:daily/pages/bottom_navigator_page.dart/materialButton_base.dart';
 import 'package:daily/pages/graphic_page/graphic_page.dart';
 import 'package:daily/pages/home_page/home_page.dart';
 import 'package:daily/pages/profile_page/profile_page.dart';
 import 'package:daily/pages/task_page/task_page.dart';
+import 'package:daily/pages/widget_base/navigator_page_base.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigatorBarPage extends StatefulWidget {
@@ -32,7 +34,7 @@ class _BottomNavigatorBarPagePageState extends State<BottomNavigatorBarPage> {
           backgroundColor: Color(0xff5B67CA),
           child: Icon(Icons.add, color: Color(0xffffffff)),
           onPressed: () {
-            log("add");
+            NavigationAnimationPage().navigatorPage(context, AddTaskPage());
           },
         ),
       ),

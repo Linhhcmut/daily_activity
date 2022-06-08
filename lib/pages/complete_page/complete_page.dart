@@ -5,6 +5,7 @@ class CompletePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageTaskBoxBase(
+      titleappBar: "Hoàn thành",
       color: Color(0xffebf9ff),
     );
   }

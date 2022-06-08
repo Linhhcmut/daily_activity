@@ -5,6 +5,7 @@ class RecycleBinPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageTaskBoxBase(
+      titleappBar: "Xóa bỏ",
       color: Color(0xfffff2f2),
     );
   }

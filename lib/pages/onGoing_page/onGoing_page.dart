@@ -5,6 +5,7 @@ class OnGoingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageTaskBoxBase(
+      titleappBar: "Đang thực hiện",
       color: Color(0xfff2fdf5),
     );
   }
