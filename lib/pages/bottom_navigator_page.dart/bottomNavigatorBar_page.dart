@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:daily/pages/add_task_page/add_task_page.dart';
 import 'package:daily/pages/bottom_navigator_page.dart/materialButton_base.dart';
 import 'package:daily/pages/graphic_page/graphic_page.dart';

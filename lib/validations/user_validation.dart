@@ -18,6 +18,13 @@ class UserInfoValidate {
     return true;
   }
 
+  static bool validatePassword({String password}) {
+    if (password.length < 8) {
+      return false;
+    }
+    return true;
+  }
+
   static bool validatePhonenumber({String phonenumber}) {
     if (phonenumber.length < 10) {
       return false;

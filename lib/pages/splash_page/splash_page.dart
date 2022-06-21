@@ -1,6 +1,7 @@
 import 'package:daily/pages/login_page/login_page.dart';
 import 'package:daily/pages/register_page/register_page.dart';
 import 'package:daily/pages/widget_base/elevator_button_base.dart';
+import 'package:daily/pages/widget_base/navigator_page_base.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatelessWidget {
@@ -44,7 +45,7 @@ class SplashPage extends StatelessWidget {
                 colorText: Colors.white,
                 primaryColor: 0xFF5B67CA,
                 elevation: 1.0,
-                pageNavigator: LoginPage(),
+                onPressed: "SpToLogin",
               ),
               SizedBox(height: 10),
               ElevatorButtonBase(
@@ -52,7 +53,7 @@ class SplashPage extends StatelessWidget {
                 primaryColor: 0xffFFFFFF,
                 colorText: Color(0xFF5B67CA),
                 elevation: 0.0,
-                pageNavigator: RegisterPage(),
+                onPressed: "SpToReg",
               )
             ],
           ),

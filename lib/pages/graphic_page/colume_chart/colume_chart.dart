@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:daily/pages/graphic_page/colume_chart/bar_data_col_chart.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';

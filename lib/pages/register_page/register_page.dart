@@ -7,9 +7,34 @@ import 'package:daily/pages/widget_base/or_login_with_base.dart';
 import 'package:daily/pages/widget_base/social_button_base.dart';
 import 'package:daily/pages/widget_base/textformfield_base.dart';
 import 'package:daily/pages/widget_base/title_accountPage_base.dart';
+import 'package:daily/stream/register_stream.dart';
 import 'package:flutter/material.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passController = TextEditingController();
+  RegisterStream _registerStream = RegisterStream();
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _nameController.addListener(() {
+      _registerStream.isValidName(_nameController.text);
+    });
+    _emailController.addListener(() {
+      _registerStream.isValidEmail(_emailController.text);
+    });
+    _passController.addListener(() {
+      _registerStream.isValidPassword(_passController.text);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -24,24 +49,42 @@ class RegisterPage extends StatelessWidget {
                 TitleTextAccountPage(
                   text: "Đăng ký",
                 ),
-                TextFormFieldBase(
-                  hideText: false,
-                  hintText: "Tên đăng nhập",
-                  prefixIcon: "assets/icons/username.png",
-                ),
+                StreamBuilder(
+                    stream: _registerStream.nameStream,
+                    builder: (context, snapshot) {
+                      return TextFormFieldBase(
+                        hideText: false,
+                        controller: _nameController,
+                        hintText: "Tên người dùng",
+                        prefixIcon: "assets/icons/username.png",
+                        errorText: snapshot.hasError ? snapshot.error : null,
+                      );
+                    }),
                 SizedBox(height: 30),
-                TextFormFieldBase(
-                  hintText: "Email ID",
-                  hideText: false,
-                  prefixIcon: "assets/icons/email.png",
-                ),
+                StreamBuilder(
+                    stream: _registerStream.emailStream,
+                    builder: (context, snapshot) {
+                      return TextFormFieldBase(
+                        controller: _emailController,
+                        hintText: "Email ID",
+                        hideText: false,
+                        prefixIcon: "assets/icons/email.png",
+                        errorText: snapshot.hasError ? snapshot.error : null,
+                      );
+                    }),
                 SizedBox(height: 30),
-                TextFormFieldBase(
-                  hintText: "Mật khẩu",
-                  hideText: true,
-                  prefixIcon: "assets/icons/password.png",
-                  suffixIcon: Icon(Icons.visibility_off_outlined),
-                ),
+                StreamBuilder(
+                    stream: _registerStream.passStream,
+                    builder: (context, snapshot) {
+                      return TextFormFieldBase(
+                        controller: _passController,
+                        hintText: "Mật khẩu",
+                        hideText: true,
+                        prefixIcon: "assets/icons/password.png",
+                        suffixIcon: Icon(Icons.visibility_off_outlined),
+                        errorText: snapshot.hasError ? snapshot.error : null,
+                      );
+                    }),
                 SizedBox(height: 60),
                 ElevatorButtonBase(
                   textButton: "Đăng ký",
@@ -49,6 +92,7 @@ class RegisterPage extends StatelessWidget {
                   colorText: Colors.white,
                   pageNavigator: BottomNavigatorBarPage(),
                   primaryColor: 0xFF5B67CA,
+                  onPressed: "Reg",
                 ),
                 OrLoginWithBase(),
                 SocialLoginButtonBase(),

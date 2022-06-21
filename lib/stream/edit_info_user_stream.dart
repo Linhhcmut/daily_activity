@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:daily/validations/info_user_validation.dart';
+import 'package:daily/validations/user_validation.dart';
 
 class EditInfoStream {
   StreamController _nameController = StreamController();

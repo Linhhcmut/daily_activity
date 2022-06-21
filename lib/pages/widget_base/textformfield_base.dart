@@ -5,21 +5,27 @@ class TextFormFieldBase extends StatelessWidget {
   final String prefixIcon;
   final Icon suffixIcon;
   final bool hideText;
+  final TextEditingController controller;
+  final String errorText;
 
   TextFormFieldBase({
     this.hintText,
     this.prefixIcon,
     this.suffixIcon,
     this.hideText,
+    this.controller,
+    this.errorText,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       obscureText: hideText,
       textAlignVertical: TextAlignVertical.center,
       style: TextStyle(fontSize: 16),
       decoration: InputDecoration(
+        errorText: errorText,
         hintText: hintText,
         hintStyle: TextStyle(
           color: Color(0xffC6CEDD),
