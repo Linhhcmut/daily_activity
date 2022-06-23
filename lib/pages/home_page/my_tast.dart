@@ -42,65 +42,67 @@ class _MyTaskBoxWidgetState extends State<MyTaskBoxWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return StaggeredGridView.countBuilder(
-      shrinkWrap: true,
-      itemCount: imageList.length,
-      crossAxisCount: 2,
-      mainAxisSpacing: 4,
-      crossAxisSpacing: 4,
-      itemBuilder: (context, index) {
-        return GestureDetector(
-          onTap: () {
-            switch (index) {
-              case 0:
-                NavigationAnimationPage()
-                    .navigatorPage(context, CompletePage());
-                break;
-              case 1:
-                NavigationAnimationPage().navigatorPage(context, PendingPage());
-                break;
-              case 2:
-                NavigationAnimationPage().navigatorPage(context, OnGoingPage());
-                break;
-              case 3:
-                NavigationAnimationPage()
-                    .navigatorPage(context, RecycleBinPage());
-                break;
-            }
-          },
-          child: Stack(
-            children: <Widget>[
-              Image.asset("${imageList[index]}"),
-              Positioned(
-                bottom: 60,
-                left: 20,
-                child: Text(
-                  "${textList[index]}",
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700,
-                    color: colorTextList[index],
+    return Expanded(
+      child: StaggeredGridView.countBuilder(
+        shrinkWrap: true,
+        itemCount: imageList.length,
+        crossAxisCount: 2,
+        mainAxisSpacing: 4,
+        crossAxisSpacing: 4,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () {
+              switch (index) {
+                case 0:
+                  NavigationAnimationPage()
+                      .navigatorPage(context, CompletePage());
+                  break;
+                case 1:
+                  NavigationAnimationPage().navigatorPage(context, PendingPage());
+                  break;
+                case 2:
+                  NavigationAnimationPage().navigatorPage(context, OnGoingPage());
+                  break;
+                case 3:
+                  NavigationAnimationPage()
+                      .navigatorPage(context, RecycleBinPage());
+                  break;
+              }
+            },
+            child: Stack(
+              children: <Widget>[
+                Image.asset("${imageList[index]}"),
+                Positioned(
+                  bottom: 60,
+                  left: 20,
+                  child: Text(
+                    "${textList[index]}",
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w700,
+                      color: colorTextList[index],
+                    ),
                   ),
                 ),
-              ),
-              Positioned(
-                bottom: 25,
-                left: 20,
-                child: Text(
-                  "${textnumberList[index]}",
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700,
-                    color: colorTextList[index],
+                Positioned(
+                  bottom: 25,
+                  left: 20,
+                  child: Text(
+                    "${textnumberList[index]}",
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w700,
+                      color: colorTextList[index],
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        );
-      },
-      staggeredTileBuilder: (int index) =>
-          StaggeredTile.count(1, index.isEven ? 1 : 0.8),
+              ],
+            ),
+          );
+        },
+        staggeredTileBuilder: (int index) =>
+            StaggeredTile.count(1, index.isEven ? 1 : 0.8),
+      ),
     );
   }
 }

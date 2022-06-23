@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 import 'package:daily/provider/profile_provider.dart';
 import 'package:daily/stream/date_time_stream.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +59,7 @@ class _UserInfoWidgetState extends State<UserInfoWidget> {
                   default:
                     break;
                 }
-                return Text("Some error ocurred try get Time");
+                return Text("Chờ...");
               },
             ),
           ],
@@ -79,7 +78,6 @@ class _UserInfoWidgetState extends State<UserInfoWidget> {
           child: ClipOval(
             child: Consumer<ProfileProvider>(
               builder: (context, imageUrl, child) {
-                log("user info");
                 if (imageUrl.imageSave == null) {
                   return Image.asset(
                     "assets/images/avatar1.png",

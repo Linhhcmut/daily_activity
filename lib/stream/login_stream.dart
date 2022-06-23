@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:daily/validations/user_validation.dart';
 
 class LoginStream {

@@ -1,7 +1,10 @@
 import 'dart:developer';
 
+import 'package:daily/pages/login_page/login_page.dart';
 import 'package:daily/pages/profile_page/body_profile/change_laguage.dart';
+import 'package:daily/pages/widget_base/navigator_page_base.dart';
 import 'package:daily/provider/profile_provider.dart';
+import 'package:daily/repositories/user_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,6 +15,7 @@ class Body3Profile extends StatefulWidget {
 
 class _Body3ProfileState extends State<Body3Profile> {
   bool notiication_sw = false;
+  UserRepository _userRepository = UserRepository();
   @override
   Widget build(BuildContext context) {
     log("build body profile 3");
@@ -58,7 +62,9 @@ class _Body3ProfileState extends State<Body3Profile> {
                           Consumer<ProfileProvider>(
                             builder: (context, language, child) {
                               return textBase(
-                                text: language.vietname ? "Tiếng Việt" : "English",
+                                text: language.vietname
+                                    ? "Tiếng Việt"
+                                    : "English",
                               );
                             },
                           ),
@@ -73,7 +79,13 @@ class _Body3ProfileState extends State<Body3Profile> {
                 ],
               ),
             ),
-            textBase(text: "Đăng xuất"),
+            GestureDetector(
+              onTap: () async {
+                await _userRepository.signOut();
+                NavigationAnimationPage().navigatorPage(context, LoginPage());
+              },
+              child: textBase(text: "Đăng xuất"),
+            ),
             SizedBox(height: 30),
             textBase(text: "Thông báo", fontWeight: FontWeight.bold),
             Divider(thickness: 1),

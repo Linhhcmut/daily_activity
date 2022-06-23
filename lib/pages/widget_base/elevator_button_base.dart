@@ -1,8 +1,10 @@
-import 'package:daily/pages/home_page/home_page.dart';
+import 'package:daily/pages/bottom_navigator_page.dart/bottomNavigatorBar_page.dart';
 import 'package:daily/pages/login_page/login_page.dart';
 import 'package:daily/pages/register_page/register_page.dart';
 import 'package:daily/pages/widget_base/navigator_page_base.dart';
+import 'package:daily/provider/login_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ElevatorButtonBase extends StatelessWidget {
   final int primaryColor;
@@ -10,8 +12,8 @@ class ElevatorButtonBase extends StatelessWidget {
   final Color colorText;
   final double elevation;
   final Widget pageNavigator;
-  final String email;
-  final String password;
+  final TextEditingController email;
+  final TextEditingController password;
   final String onPressed;
 
   ElevatorButtonBase({
@@ -31,15 +33,21 @@ class ElevatorButtonBase extends StatelessWidget {
       height: 50,
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: () {
+        onPressed: () async {
           if (onPressed == "SpToLogin") {
             navigator.navigatorPage(context, LoginPage());
           } else if (onPressed == "SpToReg") {
             navigator.navigatorPage(context, RegisterPage());
           } else if (onPressed == "Login") {
-            navigator.navigatorPage(context, HomePage());
+            var login = await context
+                .read<LoginProvider>()
+                .signInWithEmailAndPassword(
+                    email: email.text, password: password.text);
+            if (login) {
+              navigator.navigatorPage(context, BottomNavigatorBarPage());
+            }
           } else if (onPressed == "Reg") {
-            navigator.navigatorPage(context, HomePage());
+            navigator.navigatorPage(context, BottomNavigatorBarPage());
           }
         },
         style: ElevatedButton.styleFrom(

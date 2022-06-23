@@ -17,19 +17,19 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController _emailcontroller = TextEditingController();
-  TextEditingController _passcontroller = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController passcontroller = TextEditingController();
   LoginStream _loginStream = LoginStream();
 
   @override
   void didChangeDependencies() {
+    emailcontroller.addListener(() {
+      _loginStream.isValidEmail(emailcontroller.text);
+    });
+    passcontroller.addListener(() {
+      _loginStream.isValidPass(passcontroller.text);
+    });
     super.didChangeDependencies();
-    _emailcontroller.addListener(() {
-      _loginStream.isValidEmail(_emailcontroller.text);
-    });
-    _passcontroller.addListener(() {
-      _loginStream.isValidPass(_passcontroller.text);
-    });
   }
 
   @override
@@ -48,22 +48,22 @@ class _LoginPageState extends State<LoginPage> {
                   text: "Đăng nhập",
                 ),
                 StreamBuilder(
-                    stream: _loginStream.emailStream,
-                    builder: (context, snapshot) {
-                      // log(snapshot.error.toString());
-                      return TextFormFieldBase(
-                          controller: _emailcontroller,
-                          hintText: "Email",
-                          prefixIcon: "assets/icons/email.png",
-                          hideText: false,
-                          errorText: snapshot.hasError ? snapshot.error : null);
-                    }),
+                  stream: _loginStream.emailStream,
+                  builder: (context, snapshot) {
+                    return TextFormFieldBase(
+                        controller: emailcontroller,
+                        hintText: "Email",
+                        prefixIcon: "assets/icons/email.png",
+                        hideText: false,
+                        errorText: snapshot.hasError ? snapshot.error : null);
+                  },
+                ),
                 SizedBox(height: 30),
                 StreamBuilder(
                   stream: _loginStream.passStream,
                   builder: (context, snapshot) {
                     return TextFormFieldBase(
-                        controller: _passcontroller,
+                        controller: passcontroller,
                         hintText: "Mật khẩu",
                         prefixIcon: "assets/icons/password.png",
                         hideText: true,
@@ -82,8 +82,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SizedBox(height: 60),
                 ElevatorButtonBase(
-                  email: _emailcontroller.text,
-                  password: _passcontroller.text,
+                  email: emailcontroller,
+                  password: passcontroller,
                   onPressed: "Login",
                   primaryColor: 0xFF5B67CA,
                   textButton: "Đăng nhập",

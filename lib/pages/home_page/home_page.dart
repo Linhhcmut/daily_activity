@@ -17,46 +17,46 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Padding(
         padding: paddingWithScreen,
-        child: Container(
-          child: Column(
-            children: <Widget>[
-              SizedBox(height: 30),
-              UserInfoWidget(),
-              SizedBox(height: 5),
-              MyTaskBoxWidget(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  Text(
-                    "Công việc",
-                    style: TextStyle(
-                      color: Color(0xff12175E),
-                      fontSize: 22,
-                      fontWeight: FontWeight.w700,
-                    ),
+        child: Column(
+          children: <Widget>[
+            SizedBox(height: 30),
+            UserInfoWidget(),
+            SizedBox(height: 5),
+            MyTaskBoxWidget(),
+            SizedBox(height: 120),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: <Widget>[
+                Text(
+                  "Công việc",
+                  style: TextStyle(
+                    color: Color(0xff12175E),
+                    fontSize: 22,
+                    fontWeight: FontWeight.w700,
                   ),
-                  Text(
-                    "Thêm",
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: Color(0xff12175E),
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(height: 20),
-              Expanded(
-                child: ListView.builder(
-                  padding: EdgeInsets.zero,
-                  itemCount: 5,
-                  itemBuilder: (context, index) {
-                    return CardWidgetBase();
-                  },
                 ),
+                Text(
+                  "Thêm",
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: Color(0xff12175E),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(height: 20),
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                padding: EdgeInsets.zero,
+                itemCount: 5,
+                itemBuilder: (context, index) {
+                  return CardWidgetBase();
+                },
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
