@@ -20,6 +20,7 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passController = TextEditingController();
   RegisterStream _registerStream = RegisterStream();
+  bool obserText;
 
   @override
   void didChangeDependencies() {
@@ -33,6 +34,12 @@ class _RegisterPageState extends State<RegisterPage> {
     _passController.addListener(() {
       _registerStream.isValidPassword(_passController.text);
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    obserText = true;
   }
 
   @override
@@ -79,9 +86,20 @@ class _RegisterPageState extends State<RegisterPage> {
                       return TextFormFieldBase(
                         controller: _passController,
                         hintText: "Mật khẩu",
-                        hideText: true,
+                        hideText: obserText,
                         prefixIcon: "assets/icons/password.png",
-                        suffixIcon: Icon(Icons.visibility_off_outlined),
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              obserText = !obserText;
+                            });
+                          },
+                          icon: Icon(
+                            obserText
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                          ),
+                        ),
                         errorText: snapshot.hasError ? snapshot.error : null,
                       );
                     }),
@@ -93,6 +111,9 @@ class _RegisterPageState extends State<RegisterPage> {
                   pageNavigator: BottomNavigatorBarPage(),
                   primaryColor: 0xFF5B67CA,
                   onPressed: "Reg",
+                  emailRegister: _emailController,
+                  passwordRegister: _passController,
+                  nameUser: _nameController,
                 ),
                 OrLoginWithBase(),
                 SocialLoginButtonBase(),

@@ -8,6 +8,9 @@ import 'package:flutter/services.dart';
 class LoginProvider extends ChangeNotifier {
   UserRepository _userRepository = UserRepository();
   LoginStream _loginStream = LoginStream();
+  String _error = "";
+
+  String get errorText => _error;
 
   Future<bool> signInWithEmailAndPassword(
       {String email, String password}) async {
@@ -18,12 +21,23 @@ class LoginProvider extends ChangeNotifier {
           email: email,
           password: password,
         );
+        _error = "";
+        notifyListeners();
         return true;
       } catch (e) {
-        log(e.toString());
+        if (e.toString().contains("ERROR_NETWORK_REQUEST_FAILED")) {
+          _error = "Kiểm tra kết nối mạng";
+        } else if (e.toString().contains("ERROR_WRONG_PASSWORD")) {
+          _error = "Mật khẩu không đúng";
+        } else if (e.toString().contains("ERROR_USER_NOT_FOUND")) {
+          _error = "Tên đăng nhập không đúng";
+        }
+        notifyListeners();
         return false;
       }
     }
+    _error = "";
+    notifyListeners();
     return false;
   }
 

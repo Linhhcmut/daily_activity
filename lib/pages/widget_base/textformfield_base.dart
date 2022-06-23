@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class TextFormFieldBase extends StatelessWidget {
   final String hintText;
   final String prefixIcon;
-  final Icon suffixIcon;
+  final Widget suffixIcon;
   final bool hideText;
   final TextEditingController controller;
   final String errorText;

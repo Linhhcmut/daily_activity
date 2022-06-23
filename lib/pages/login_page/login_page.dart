@@ -20,6 +20,13 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passcontroller = TextEditingController();
   LoginStream _loginStream = LoginStream();
+  bool obserText;
+
+  @override
+  void initState() {
+    super.initState();
+    obserText = true;
+  }
 
   @override
   void didChangeDependencies() {
@@ -63,12 +70,22 @@ class _LoginPageState extends State<LoginPage> {
                   stream: _loginStream.passStream,
                   builder: (context, snapshot) {
                     return TextFormFieldBase(
-                        controller: passcontroller,
-                        hintText: "Mật khẩu",
-                        prefixIcon: "assets/icons/password.png",
-                        hideText: true,
-                        suffixIcon: Icon(Icons.visibility_off_outlined),
-                        errorText: snapshot.hasError ? snapshot.error : null);
+                      controller: passcontroller,
+                      hintText: "Mật khẩu",
+                      prefixIcon: "assets/icons/password.png",
+                      hideText: obserText,
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            obserText = !obserText;
+                          });
+                        },
+                        icon: Icon(
+                          obserText ? Icons.visibility_off : Icons.visibility,
+                        ),
+                      ),
+                      errorText: snapshot.hasError ? snapshot.error : null,
+                    );
                   },
                 ),
                 SizedBox(height: 10),
@@ -82,8 +99,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SizedBox(height: 60),
                 ElevatorButtonBase(
-                  email: emailcontroller,
-                  password: passcontroller,
+                  emailLogin: emailcontroller,
+                  passwordLogin: passcontroller,
                   onPressed: "Login",
                   primaryColor: 0xFF5B67CA,
                   textButton: "Đăng nhập",

@@ -1,8 +1,11 @@
+import 'dart:developer';
+
 import 'package:daily/pages/bottom_navigator_page.dart/bottomNavigatorBar_page.dart';
 import 'package:daily/pages/login_page/login_page.dart';
 import 'package:daily/pages/register_page/register_page.dart';
 import 'package:daily/pages/widget_base/navigator_page_base.dart';
 import 'package:daily/provider/login_provider.dart';
+import 'package:daily/provider/register_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,9 +15,12 @@ class ElevatorButtonBase extends StatelessWidget {
   final Color colorText;
   final double elevation;
   final Widget pageNavigator;
-  final TextEditingController email;
-  final TextEditingController password;
+  final TextEditingController emailLogin;
+  final TextEditingController passwordLogin;
+  final TextEditingController emailRegister;
+  final TextEditingController passwordRegister;
   final String onPressed;
+  final TextEditingController nameUser;
 
   ElevatorButtonBase({
     this.primaryColor,
@@ -22,9 +28,12 @@ class ElevatorButtonBase extends StatelessWidget {
     this.colorText,
     this.elevation,
     this.pageNavigator,
-    this.email,
-    this.password,
+    this.emailLogin,
+    this.passwordLogin,
     this.onPressed,
+    this.emailRegister,
+    this.passwordRegister,
+    this.nameUser,
   });
   @override
   Widget build(BuildContext context) {
@@ -42,12 +51,26 @@ class ElevatorButtonBase extends StatelessWidget {
             var login = await context
                 .read<LoginProvider>()
                 .signInWithEmailAndPassword(
-                    email: email.text, password: password.text);
+                    email: emailLogin.text, password: passwordLogin.text);
             if (login) {
               navigator.navigatorPage(context, BottomNavigatorBarPage());
+            } else {
+              var error = context.read<LoginProvider>().errorText;
+              if (error != "") {
+                final snackBar = SnackBar(content: Text("$error"));
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              }
             }
           } else if (onPressed == "Reg") {
-            navigator.navigatorPage(context, BottomNavigatorBarPage());
+            var register = await context
+                .read<RegisterProvider>()
+                .createUserWithEmailAndPassword(
+                    email: emailRegister.text,
+                    password: passwordRegister.text,
+                    name: nameUser.text);
+            if (register) {
+              navigator.navigatorPage(context, BottomNavigatorBarPage());
+            }
           }
         },
         style: ElevatedButton.styleFrom(

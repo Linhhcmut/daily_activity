@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -13,6 +11,7 @@ class UserRepository {
               'email',
               'https://www.googleapis.com/auth/contacts.readonly'
             ]);
+
   Future<void> signInWithEmailAndPassword(
       {String email, String password}) async {
     return await _firebaseAuth.signInWithEmailAndPassword(
@@ -23,14 +22,11 @@ class UserRepository {
 
   Future<void> createUserWithEmailAndPassword(
       {String email, String password}) async {
-    try {
-      return await _firebaseAuth.createUserWithEmailAndPassword(
-        email: email.trim(),
-        password: password,
-      );
-    } catch (e) {
-      log(e.toString());
-    }
+    
+    return await _firebaseAuth.createUserWithEmailAndPassword(
+      email: email.trim(),
+      password: password,
+    );
   }
 
   Future<FirebaseUser> signInWithGoogle() async {

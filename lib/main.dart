@@ -1,6 +1,7 @@
 import 'package:daily/pages/splash_page/splash_page.dart';
 import 'package:daily/provider/login_provider.dart';
 import 'package:daily/provider/profile_provider.dart';
+import 'package:daily/provider/register_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => LoginProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => RegisterProvider(),
         )
       ],
       child: MaterialApp(
