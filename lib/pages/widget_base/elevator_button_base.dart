@@ -57,7 +57,10 @@ class ElevatorButtonBase extends StatelessWidget {
             } else {
               var error = context.read<LoginProvider>().errorText;
               if (error != "") {
-                final snackBar = SnackBar(content: Text("$error"));
+                final snackBar = SnackBar(
+                  content: Text("$error"),
+                  duration: Duration(seconds: 1),
+                );
                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
               }
             }
@@ -70,6 +73,15 @@ class ElevatorButtonBase extends StatelessWidget {
                     name: nameUser.text);
             if (register) {
               navigator.navigatorPage(context, BottomNavigatorBarPage());
+            } else {
+              var error = context.read<RegisterProvider>().errorRegis;
+              if (error != "") {
+                final snackBar = SnackBar(
+                  content: Text("$error"),
+                  duration: Duration(seconds: 1),
+                );
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              }
             }
           }
         },

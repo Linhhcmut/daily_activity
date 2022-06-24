@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:daily/repositories/user_repository.dart';
 import 'package:daily/stream/login_stream.dart';
 import 'package:flutter/cupertino.dart';
@@ -45,9 +43,7 @@ class LoginProvider extends ChangeNotifier {
     try {
       await _userRepository.signInWithGoogle();
       return true;
-    } on PlatformException catch (e) {
-      log(e.toString());
-    }
+    } on PlatformException catch (_) {}
     return false;
   }
 }

@@ -21,81 +21,84 @@ class _BottomNavigatorBarPagePageState extends State<BottomNavigatorBarPage> {
   @override
   Widget build(BuildContext context) {
     bool showFab = MediaQuery.of(context).viewInsets.bottom != 0;
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: PageStorage(
-        child: currentScreen,
-        bucket: pucket,
-      ),
-      floatingActionButton: Visibility(
-        visible: !showFab,
-        child: FloatingActionButton(
-          backgroundColor: Color(0xff5B67CA),
-          child: Icon(Icons.add, color: Color(0xffffffff)),
-          onPressed: () {
-            NavigationAnimationPage().navigatorPage(context, AddTaskPage());
-          },
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: PageStorage(
+          child: currentScreen,
+          bucket: pucket,
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        notchMargin: 10,
-        child: Container(
-          height: 60,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  MaterialButtonBase(
-                    onPressed: () {
-                      setState(() {
-                        currentScreen = HomePage();
-                        currentTab = 0;
-                      });
-                    },
-                    currentTab: currentTab,
-                    indexTab: 0,
-                  ),
-                  MaterialButtonBase(
-                    onPressed: () {
-                      setState(() {
-                        currentScreen = TaskPage();
-                        currentTab = 1;
-                      });
-                    },
-                    currentTab: currentTab,
-                    indexTab: 1,
-                  ),
-                ],
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  MaterialButtonBase(
-                    onPressed: () {
-                      setState(() {
-                        currentScreen = GraphicPage();
-                        currentTab = 2;
-                      });
-                    },
-                    currentTab: currentTab,
-                    indexTab: 2,
-                  ),
-                  MaterialButtonBase(
-                    onPressed: () {
-                      setState(() {
-                        currentScreen = ProfilePage();
-                        currentTab = 3;
-                      });
-                    },
-                    currentTab: currentTab,
-                    indexTab: 3,
-                  ),
-                ],
-              )
-            ],
+        floatingActionButton: Visibility(
+          visible: !showFab,
+          child: FloatingActionButton(
+            backgroundColor: Color(0xff5B67CA),
+            child: Icon(Icons.add, color: Color(0xffffffff)),
+            onPressed: () {
+              NavigationAnimationPage().navigatorPage(context, AddTaskPage());
+            },
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: BottomAppBar(
+          shape: CircularNotchedRectangle(),
+          notchMargin: 10,
+          child: Container(
+            height: 60,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    MaterialButtonBase(
+                      onPressed: () {
+                        setState(() {
+                          currentScreen = HomePage();
+                          currentTab = 0;
+                        });
+                      },
+                      currentTab: currentTab,
+                      indexTab: 0,
+                    ),
+                    MaterialButtonBase(
+                      onPressed: () {
+                        setState(() {
+                          currentScreen = TaskPage();
+                          currentTab = 1;
+                        });
+                      },
+                      currentTab: currentTab,
+                      indexTab: 1,
+                    ),
+                  ],
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    MaterialButtonBase(
+                      onPressed: () {
+                        setState(() {
+                          currentScreen = GraphicPage();
+                          currentTab = 2;
+                        });
+                      },
+                      currentTab: currentTab,
+                      indexTab: 2,
+                    ),
+                    MaterialButtonBase(
+                      onPressed: () {
+                        setState(() {
+                          currentScreen = ProfilePage();
+                          currentTab = 3;
+                        });
+                      },
+                      currentTab: currentTab,
+                      indexTab: 3,
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
