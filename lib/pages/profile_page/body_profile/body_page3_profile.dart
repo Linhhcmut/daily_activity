@@ -1,6 +1,4 @@
 import 'dart:developer';
-
-import 'package:daily/pages/login_page/login_page.dart';
 import 'package:daily/pages/profile_page/body_profile/change_laguage.dart';
 import 'package:daily/pages/splash_page/splash_page.dart';
 import 'package:daily/pages/widget_base/navigator_page_base.dart';
