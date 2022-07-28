@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:daily/pages/profile_page/body_profile/body_page1_profile.dart';
 import 'package:daily/pages/profile_page/body_profile/body_page2_profile.dart';
 import 'package:daily/pages/profile_page/body_profile/body_page3_profile.dart';

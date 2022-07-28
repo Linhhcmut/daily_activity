@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:daily/repositories/user_repository.dart';
 import 'package:daily/stream/register_stream.dart';
 import 'package:flutter/cupertino.dart';

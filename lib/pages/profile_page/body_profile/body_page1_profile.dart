@@ -45,6 +45,7 @@ class _Body1ProfileState extends State<Body1Profile> {
                     NavigationAnimationPage().navigatorPage(
                       context,
                       EditProfilePage(),
+                      true,
                     );
                   },
                   child: Container(

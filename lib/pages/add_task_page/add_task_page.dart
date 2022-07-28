@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:daily/contains/padding_contains.dart';
 import 'package:daily/pages/add_task_page/tff_addtask_page.dart';
 import 'package:daily/pages/widget_base/tagWidget.dart';
@@ -20,7 +19,11 @@ class _AddTaskPageState extends State<AddTaskPage> {
         elevation: 0.0,
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            try {
+              Navigator.pop(context);
+            } catch (e) {
+              log(e.toString());
+            }
           },
           icon: Icon(
             Icons.arrow_back_ios_sharp,

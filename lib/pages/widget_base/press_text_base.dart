@@ -13,7 +13,7 @@ class PressTextBase extends StatelessWidget {
     var onPressed = NavigationAnimationPage();
     return GestureDetector(
       onTap: () {
-        onPressed.navigatorPage(context, pageNavigator);
+        onPressed.navigatorPage(context, pageNavigator, true);
       },
       child: Text(
         text,

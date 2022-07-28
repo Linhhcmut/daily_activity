@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:daily/pages/bottom_navigator_page.dart/bottomNavigatorBar_page.dart';
 import 'package:daily/pages/login_page/login_page.dart';
 import 'package:daily/pages/register_page/register_page.dart';
@@ -44,16 +42,16 @@ class ElevatorButtonBase extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () async {
           if (onPressed == "SpToLogin") {
-            navigator.navigatorPage(context, LoginPage());
+            navigator.navigatorPage(context, LoginPage(), true);
           } else if (onPressed == "SpToReg") {
-            navigator.navigatorPage(context, RegisterPage());
+            navigator.navigatorPage(context, RegisterPage(), true);
           } else if (onPressed == "Login") {
             var login = await context
                 .read<LoginProvider>()
                 .signInWithEmailAndPassword(
                     email: emailLogin.text, password: passwordLogin.text);
             if (login) {
-              navigator.navigatorPage(context, BottomNavigatorBarPage());
+              navigator.navigatorPage(context, BottomNavigatorBarPage(), false);
             } else {
               var error = context.read<LoginProvider>().errorText;
               if (error != "") {
@@ -72,7 +70,7 @@ class ElevatorButtonBase extends StatelessWidget {
                     password: passwordRegister.text,
                     name: nameUser.text);
             if (register) {
-              navigator.navigatorPage(context, BottomNavigatorBarPage());
+              navigator.navigatorPage(context, BottomNavigatorBarPage(), false);
             } else {
               var error = context.read<RegisterProvider>().errorRegis;
               if (error != "") {

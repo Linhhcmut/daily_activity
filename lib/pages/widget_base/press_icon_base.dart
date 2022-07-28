@@ -19,7 +19,7 @@ class PressIconBase extends StatelessWidget {
               await context.read<LoginProvider>().signInWithGoogle();
           if (loginGoogle) {
             NavigationAnimationPage()
-                .navigatorPage(context, BottomNavigatorBarPage());
+                .navigatorPage(context, BottomNavigatorBarPage(), true);
           }
         } else {
           //continue

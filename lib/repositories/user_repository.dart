@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -50,6 +52,11 @@ class UserRepository {
   }
 
   Future<bool> isSignedIn() async {
-    return await _firebaseAuth.currentUser() != null;
+    if (_firebaseAuth.currentUser() != null) {
+      log("signIN");
+      return true;
+    }
+    log("signOut");
+    return false;
   }
 }

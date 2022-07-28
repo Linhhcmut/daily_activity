@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class NavigationAnimationPage {
-  void navigatorPage(BuildContext context, Widget pageNavigator) {
+
+  void navigatorPage(BuildContext context, Widget pageNavigator, routerPage) {
     Navigator.pushAndRemoveUntil(
       context,
       PageRouteBuilder(
@@ -19,7 +20,7 @@ class NavigationAnimationPage {
           );
         },
       ),
-      (router) => false,
+      (router) => routerPage,
     );
   }
 }

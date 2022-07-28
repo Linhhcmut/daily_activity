@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:daily/pages/login_page/login_page.dart';
 import 'package:daily/pages/profile_page/body_profile/change_laguage.dart';
+import 'package:daily/pages/splash_page/splash_page.dart';
 import 'package:daily/pages/widget_base/navigator_page_base.dart';
 import 'package:daily/provider/profile_provider.dart';
 import 'package:daily/repositories/user_repository.dart';
@@ -82,7 +83,8 @@ class _Body3ProfileState extends State<Body3Profile> {
             GestureDetector(
               onTap: () async {
                 await _userRepository.signOut();
-                NavigationAnimationPage().navigatorPage(context, LoginPage());
+                NavigationAnimationPage()
+                    .navigatorPage(context, SplashPage(), false);
               },
               child: textBase(text: "Đăng xuất"),
             ),

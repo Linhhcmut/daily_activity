@@ -35,7 +35,7 @@ class _BottomNavigatorBarPagePageState extends State<BottomNavigatorBarPage> {
             backgroundColor: Color(0xff5B67CA),
             child: Icon(Icons.add, color: Color(0xffffffff)),
             onPressed: () {
-              NavigationAnimationPage().navigatorPage(context, AddTaskPage());
+              NavigationAnimationPage().navigatorPage(context, AddTaskPage(), true);
             },
           ),
         ),

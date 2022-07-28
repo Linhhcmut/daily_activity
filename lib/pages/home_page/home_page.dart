@@ -23,7 +23,6 @@ class _HomePageState extends State<HomePage> {
             UserInfoWidget(),
             SizedBox(height: 5),
             MyTaskBoxWidget(),
-            SizedBox(height: 120),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.end,

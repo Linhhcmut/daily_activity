@@ -43,6 +43,7 @@ class _MyTaskBoxWidgetState extends State<MyTaskBoxWidget> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
+      flex: 2,
       child: StaggeredGridView.countBuilder(
         shrinkWrap: true,
         itemCount: imageList.length,
@@ -55,17 +56,19 @@ class _MyTaskBoxWidgetState extends State<MyTaskBoxWidget> {
               switch (index) {
                 case 0:
                   NavigationAnimationPage()
-                      .navigatorPage(context, CompletePage());
+                      .navigatorPage(context, CompletePage(), true);
                   break;
                 case 1:
-                  NavigationAnimationPage().navigatorPage(context, PendingPage());
+                  NavigationAnimationPage()
+                      .navigatorPage(context, PendingPage(), true);
                   break;
                 case 2:
-                  NavigationAnimationPage().navigatorPage(context, OnGoingPage());
+                  NavigationAnimationPage()
+                      .navigatorPage(context, OnGoingPage(), true);
                   break;
                 case 3:
                   NavigationAnimationPage()
-                      .navigatorPage(context, RecycleBinPage());
+                      .navigatorPage(context, RecycleBinPage(), true);
                   break;
               }
             },

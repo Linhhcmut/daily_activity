@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:daily/pages/bottom_navigator_page.dart/bottomNavigatorBar_page.dart';
 import 'package:daily/pages/splash_page/splash_page.dart';
 import 'package:daily/provider/login_provider.dart';
@@ -16,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     UserRepository _userRepository = UserRepository();
+    _userRepository.isSignedIn();
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -28,7 +31,7 @@ class MyApp extends StatelessWidget {
           create: (_) => RegisterProvider(),
         )
       ],
-      child: _userRepository.isSignedIn() == false
+      child: _userRepository.isSignedIn() == true
           ? MaterialApp(
               debugShowCheckedModeBanner: false,
               home: SplashPage(),
